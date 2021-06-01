@@ -44,3 +44,86 @@ title = soup.title
 
 
 # print(title)
+
+# Get all the paragraphs from the page
+
+paras = soup.find_all('p')
+# print(paras)
+
+# Get all the anchor tag from the page
+
+anchor = soup.find_all('a')
+# print(anchor)
+
+# print(soup.find('p'))  # Get first element
+
+# print(soup.find('header')['id'])  # Get Ids of any element
+
+# print(soup.find('p')['class'])  # Get classes of any element
+
+# find all the elements with class lead
+
+#print(soup.find_all('p', class_='lead'))
+
+# find all text data from p tag
+
+# print(soup.find('p').get_text())
+
+#print(soup.find('p', class_='lead').get_text())
+
+
+# get all the lonks on the HTML page
+
+anchor = soup.find_all('a')
+all_links = set()
+for link in anchor:
+    if(link.get('href') != '#'):
+        link_text = 'https://codewithharry.com' + link.get('href')
+        all_links.add(link)
+      #  print(link_text)
+
+
+# step 3 : tree_Traversal
+
+# comment
+
+#markup = "<p><!-- this is a comment --></p>"
+#soup2 = BeautifulSoup(markup)
+# print(type(soup2.p.string))
+# print((soup2.p.string))
+# print(soup2.p)
+
+
+navbarSupportedContent = soup.find(id='navbarSupportedContent')
+
+# print(navbarSupportedContent.contents)
+
+# for elem in navbarSupportedContent.children:
+# print(elem)
+
+
+# for elem in navbarSupportedContent.contents:
+#  print(elem)
+
+# for elem in navbarSupportedContent.strings:
+# print(elem)
+
+# for elem in navbarSupportedContent.stripped_strings:
+#    print(elem)
+
+# .contents - A tag's children are avaliable as a list (It store in our memory )
+# .children - A tag's children are avaliable as a generator (but it is just itrating item )
+
+# print(navbarSupportedContent.parent)
+
+# print(navbarSupportedContent.parents)
+
+# for item in navbarSupportedContent.parents:
+#    print(item.name)
+
+
+# print(navbarSupportedContent.next_sibling.next_sibling)
+# print(navbarSupportedContent.previous_sibling.previous_sibling)
+
+elem = soup.select('#loginModal')
+print(elem)
